@@ -1,3 +1,17 @@
-data/test.csv
-data/train.csv
-src/model/random_forest.pkl
+# Ignore dataset files
+data/
+*.csv
+
+# Ignore models and temporary files
+model/
+*.pkl
+
+# Python cache and virtual environment
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
