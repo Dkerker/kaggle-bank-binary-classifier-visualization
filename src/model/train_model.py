@@ -2,7 +2,8 @@ import pandas as pd
 import joblib
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split, cross_val_score, RandomizedSearchCV
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score, classification_report
+import os
 
 train_df = pd.read_csv('data/train.csv')
 
@@ -12,7 +13,7 @@ y = train_df['y']
 X = pd.get_dummies(X, drop_first=True)
 
 X_train, X_val, y_train, y_val = train_test_split(
-    X, y, test_size=0.2, random_state=0
+    X, y, test_size=0.2, random_state=0, stratify=y
 )
 # param_dist = {
 #     'n_estimators':[20, 50, 100],
@@ -46,12 +47,25 @@ best_params = {
     'min_samples_split':2,
     'min_samples_leaf':2,
     'max_features':'log2',
-    'bootstrap':True
+    'bootstrap':True,
+    'random_state':0
 }
-model = RandomForestClassifier(**best_params)
+model = RandomForestClassifier(**best_params, n_jobs=-1)
 model.fit(X_train, y_train)
 
 y_pred = model.predict(X_val)
 print("Validation Accuracy: ", accuracy_score(y_val, y_pred))
+print("Classification Report:\n", classification_report(y_val, y_pred))
 
-joblib.dump(model, "src/model/random_forest.pkl")
+model_dir = "src/model"
+if not os.path.exists(model_dir):
+    os.makedirs(model_dir)
+
+model_path = os.path.join(model_dir, "random_forest.pkl")
+joblib.dump(model, model_path)
+
+columns_path = os.path.join(model_dir, "training_columns.pkl")
+joblib.dump(X_train.columns.tolist(), columns_path)
+
+joblib.dump(y_val, os.path.join(model_dir, 'y_val.pkl'))
+joblib.dump(y_pred, os.path.join(model_dir, 'y_pred.pkl'))
