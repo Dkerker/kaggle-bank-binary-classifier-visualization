@@ -1,6 +1,6 @@
 # Copyright 2025 Jacob Groll
 #
-# streamlit_app.py
+# app.py
 #
 # This script creates a Streamlit dashboard to visualize the bank marketing dataset
 # and display the performance of a trained machine learning model.
