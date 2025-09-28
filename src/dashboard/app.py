@@ -59,7 +59,7 @@ if model is None or df_train is None or y_val is None:
 label_map = {1: 'Subscribed', 0: 'Not Subscribed', 'yes': 'Subscribed', 'no': 'Not Subscribed'}
 df_train['subscription_status'] = df_train['y'].map(label_map)
 
-color_map = {'Not Subscribed': '#d62728', 'Subscribed': '#2ca02c'}
+color_map = {'Not Subscribed': '#68a0d0', 'Subscribed': '#00429d'}
 
 st.title(":bank: Bank Customer Prediction Dashboard")
 st.markdown("""
