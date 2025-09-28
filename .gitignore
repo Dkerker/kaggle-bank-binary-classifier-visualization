@@ -1,6 +1,3 @@
-# Ignore dataset files
-data/
-*.csv
 
 # Python cache and virtual environment
 __pycache__/
