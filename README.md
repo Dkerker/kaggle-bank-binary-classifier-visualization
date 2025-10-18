@@ -1,6 +1,6 @@
 # Binary Bank Classifier Prediction & Visualization
 
-This project analyzes a dataset of bank customers to predict the likelihood of them subscribing to a bank term deposit. It involves data cleaning, exploratory data analysis, training a Random Forest classification model, and deploying an interactive web application using Streamlit to visualize the results.
+This project analyzes a Kaggle dataset (https://www.kaggle.com/competitions/playground-series-s5e8/overview) of bank customers to predict the likelihood of them subscribing to a bank term deposit. It involves data cleaning, exploratory data analysis, training a Random Forest classification model, and deploying an interactive web application using Streamlit to visualize the results.
 
 The primary goal is to build a reliable binary classification model and present the findings in an accessible, user-friendly interface.
 
@@ -73,3 +73,8 @@ To launch the interactive web application, you must run the command from the **r
 streamlit run src/dashboard/app.py
 ```
 
+---
+
+## License
+
+This project is licensed under the APACHE 2.0 License - see the LICENSE file for details.
