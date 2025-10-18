@@ -63,7 +63,7 @@ def load_eval_data():
         y_pred = joblib.load("src/model/y_pred.pkl")
         return y_val, y_pred
     except FileNotFoundError:
-        return None 
+        return None, None
 
 model = load_model()
 training_columns = load_training_columns()
@@ -87,6 +87,7 @@ st.markdown("""
     trained to predict customer subscriptions.
 """)
 
+# Create 3 tabs for different visualizations.
 tab1, tab2, tab3 = st.tabs([":bar_chart: Data Overview", ":brain: Model Performance", ":clipboard: Raw Data Snapshot"])
 
 with tab1:
@@ -131,7 +132,8 @@ with tab1:
 
 with tab2:
     st.header("Model Perfomance Evaluation")
-
+    
+    # Seperate into two columns.
     col1, col2 = st.columns(2)
 
     with col1:
@@ -185,6 +187,7 @@ with tab3:
     st.header("Full Training Dataset")
     st.dataframe(df_train)
 
+# Include Apache 2.0 License.
 st.markdown("---")
 st.markdown("""
 <div style="text-align: center; font-size: 0.9em; color: #808080;">
