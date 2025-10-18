@@ -18,7 +18,7 @@ The primary goal is to build a reliable binary classification model and present 
 ## Technologies Used
 
 * **Programming Language**: Python
-* **Data Manipulation**: Pandas, NumPy
+* **Data Manipulation**: Pandas
 * **Machine Learning**: Scikit-learn
 * **Web Framework**: Streamlit
 * **Data Visualization**: Plotly
